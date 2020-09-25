@@ -9,3 +9,5 @@ This a Ticker Application used to view information on stocks, similar to Google 
 Company/historical data - https://rapidapi.com/raskanskyz/api/alpha-apis-finance-graphql/endpoints
 
 ## Wireframe
+
+<img src="https://raw.githubusercontent.com/SenseiCain/ticker-app/master/Wireframe.png" width=500>
