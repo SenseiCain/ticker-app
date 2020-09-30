@@ -1,9 +1,15 @@
 import React from 'react';
 import './App.css';
 
+import Logo from './components/Logo';
+import SearchBar from './components/SearchBar'
+
 function App() {
   return (
-    <div></div>
+    <div>
+      <Logo/>
+      <SearchBar/>
+    </div>
   );
 }
 
