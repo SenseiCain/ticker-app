@@ -1,14 +1,12 @@
 import React from 'react';
 import './App.css';
 
-import Logo from './components/Logo';
-import SearchBar from './components/SearchBar'
+import Home from './containers/Home';
 
 function App() {
   return (
     <div>
-      <Logo/>
-      <SearchBar/>
+      <Home />
     </div>
   );
 }
