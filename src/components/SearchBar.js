@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+
+import { QueryContext } from '../context/query-context';
 
 const SearchBar = () => {
-    const [query, setQuery] = useState('');
+    const [query, setQuery] = useContext(QueryContext);
 
     const handleChange = ({ target: {value} }) => {
         setQuery(value);
