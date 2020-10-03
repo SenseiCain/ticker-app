@@ -12,12 +12,6 @@ const useFetchMultipleCompanies = query => {
             
             const url = 'https://alpha-apis-finance-graphql.p.rapidapi.com/';
 
-            const mutationObjs = query.map(c => {
-                return  `${c.name}: company(identifier: "${c.ticker}"){ name }`;
-            });
-
-            const mutation = `{ ${mutationObjs.join(' ')} }`;
-
             const resp = await fetch(url, {
                 method: 'POST',
                 headers: {
@@ -27,10 +21,11 @@ const useFetchMultipleCompanies = query => {
                     "accept": "application/json",
                     "useQueryString": true
                 },
-                body: JSON.stringify({ "query": mutation })
+                body: JSON.stringify({ "query": generateMutation(query) })
             });
 
             const json = await resp.json();
+            console.log(json)
 
             setResp(json.data);
             setStatus(false);
@@ -40,6 +35,14 @@ const useFetchMultipleCompanies = query => {
     }, [query]);
 
     return { resp, status };
+}
+
+const generateMutation = companies => {
+    const mutationObjs = companies.map(c => {
+        return  `${c.name}: company(identifier: "${c.ticker}"){ name }`;
+    });
+
+    return `{ ${mutationObjs.join(' ')} }`
 }
 
 export { useFetchMultipleCompanies };
