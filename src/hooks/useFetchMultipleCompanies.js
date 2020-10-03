@@ -25,9 +25,9 @@ const useFetchMultipleCompanies = query => {
             });
 
             const json = await resp.json();
-            console.log(json)
+            const formattedJSON = formatJSON(query, json);
 
-            setResp(json.data);
+            setResp(formattedJSON);
             setStatus(false);
         };
 
@@ -39,10 +39,20 @@ const useFetchMultipleCompanies = query => {
 
 const generateMutation = companies => {
     const mutationObjs = companies.map(c => {
-        return  `${c.name}: company(identifier: "${c.ticker}"){ name }`;
+        return  `${c.ticker}Name: company(identifier: "${c.ticker}"){ name } ${c.ticker}Price:realtimeStockPrice(identifier: "${c.ticker}") { lastPrice }`;
     });
 
     return `{ ${mutationObjs.join(' ')} }`
+}
+
+const formatJSON = (query, { data }) => {
+    return query.map(({ticker}) => {
+        return {
+            ticker,
+            name: data[`${ticker}Name`].name,
+            price: data[`${ticker}Price`].lastPrice
+        }
+    });
 }
 
 export { useFetchMultipleCompanies };
