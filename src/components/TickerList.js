@@ -10,10 +10,26 @@ const TickerList = props => {
     ]);
 
     const { resp, status } = useFetchMultipleCompanies(companies);
-    // console.log(resp);
+    // console.log(resp)
+
+    const generateCards = () => {
+        return Object.keys(resp).map(key => {
+            return (
+                <div>
+                    <ul>
+                        <li>{resp[key].name}</li>
+                        <li>{resp[key].ticker}</li>
+                        <li>{resp[key].price}</li>
+                    </ul>
+                </div>
+            )
+        })   
+    }
 
     return(
-        <div></div>
+        <div>
+            {generateCards()}
+        </div>
     )
 }
 
