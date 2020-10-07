@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 
 const useFetchNews = () => {
     const [news, setNews] = useState([]);
-    const [status, setStatus] = useState(false);
+    const [statusNews, setStatusNews] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
-            setStatus(true);
+            setStatusNews(true);
             
             const url = 'https://alpha-apis-finance-graphql.p.rapidapi.com/';
 
@@ -28,13 +28,13 @@ const useFetchNews = () => {
             const result = json.data.apiResponseNews.news;
 
             setNews(result);
-            setStatus(false);
+            setStatusNews(false);
         };
 
         fetchData();
     }, [])
 
-    return { news, status };
+    return { news, statusNews };
 };
 
 export { useFetchNews };

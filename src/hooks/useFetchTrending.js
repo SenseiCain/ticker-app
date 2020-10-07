@@ -5,12 +5,12 @@ import { useState, useEffect } from 'react';
 
 const useFetchTrending = () => {
     const [trending, setTrending] = useState([]);
-    const [status, setStatus] = useState(false);
+    const [statusTrending, setStatusTrending] = useState(false);
 
     useEffect(() => {
 
         const fetchData = async () => {
-            setStatus(true);
+            setStatusTrending(true);
             
             const url = 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-trending-tickers';
 
@@ -42,13 +42,13 @@ const useFetchTrending = () => {
             })
 
             setTrending(resultObj);
-            setStatus(false);
+            setStatusTrending(false);
         };
 
         fetchData();
     }, []);
 
-    return { trending, status };
+    return { trending, statusTrending };
 }
 
 export { useFetchTrending };

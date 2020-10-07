@@ -8,7 +8,7 @@ import SearchBar from '../components/SearchBar';
 import TickerList from '../components/TickerList';
 
 const Home = () => {
-    const { trending, status } = useFetchTrending();
+    const { trending, statusTrending } = useFetchTrending();
     const { news, statusNews } = useFetchNews();
 
     return (
