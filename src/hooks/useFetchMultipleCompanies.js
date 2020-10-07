@@ -8,7 +8,7 @@ const useFetchMultipleCompanies = query => {
     const [status, setStatus] = useState(false);
 
     useEffect(() => {
-        if (!query) return;
+        if (query.length < 1 || query == undefined) return;
 
         const fetchData = async () => {
             setStatus(true);
