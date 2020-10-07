@@ -1,21 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import { useFetchMultipleCompanies } from '../hooks/useFetchMultipleCompanies';
 
-const TickerList = props => {
-    const [companies, setCompanies] = useState([
-        { ticker: "GOOGL" },
-        { ticker: "AMZN" },
-        { ticker: "MSFT" },
-    ]);
+const TickerList = ({ tickers }) => {
 
-    const { resp, status } = useFetchMultipleCompanies(companies);
-    // console.log(resp)
+    const { resp, status } = useFetchMultipleCompanies(tickers);
 
     const generateCards = () => {
-        return Object.keys(resp).map(key => {
+        return Object.keys(resp).map((key, i) => {
             return (
-                <div>
+                <div key={i}>
                     <ul>
                         <li>{resp[key].name}</li>
                         <li>{resp[key].ticker}</li>

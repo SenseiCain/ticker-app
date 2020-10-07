@@ -36,8 +36,6 @@ const useFetchMovers = () => {
             const topLoser = result[1].quotes[0].symbol;
             const topActive = result[2].quotes[0].symbol;
 
-            // console.log(topGainer, topLoser, topActive);
-
             setMovers([topGainer, topLoser, topActive]);
             setStatus(false);
         };

@@ -8,13 +8,12 @@ import TickerList from '../components/TickerList';
 
 const Home = () => {
     const { movers, status } = useFetchMovers();
-    console.log(movers)
 
     return (
         <div>
             <Logo />
             <SearchBar />
-            <TickerList />
+            <TickerList tickers={movers} />
         </div>
     )
 }

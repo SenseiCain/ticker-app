@@ -42,21 +42,20 @@ const useFetchMultipleCompanies = query => {
 
 const generateMutation = companies => {
     const mutationObjs = companies.map(c => {
-        return  `${c.ticker}Name: company(identifier: "${c.ticker}"){ name } ${c.ticker}Price:realtimeStockPrice(identifier: "${c.ticker}") { lastPrice }`;
+        return  `${c}Name: company(identifier: "${c}"){ name } ${c}Price:realtimeStockPrice(identifier: "${c}") { lastPrice }`;
     });
 
     return `{ ${mutationObjs.join(' ')} }`
 }
 
 const formatJSON = (query, { data }) => {
-
     // TODO - Return daily change (positive/negative)
 
-    return query.map(({ticker}) => {
+    return query.map(c => {
         return {
-            ticker,
-            name: data[`${ticker}Name`].name,
-            price: data[`${ticker}Price`].lastPrice
+            ticker: c,
+            name: data[`${c}Name`].name,
+            price: data[`${c}Price`].lastPrice
         }
     });
 }
