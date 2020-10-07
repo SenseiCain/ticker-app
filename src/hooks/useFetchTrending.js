@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 
 // Yahoo Finance RESTful API
-// Use to fetch 3 tickers (top gainer, loser, and most active)
+// Use to fetch 3 trending tickers
 
-const useFetchMovers = () => {
-    const [movers, setMovers] = useState([]);
+const useFetchTrending = () => {
+    const [trending, setTrending] = useState([]);
     const [status, setStatus] = useState(false);
 
     useEffect(() => {
@@ -12,7 +12,7 @@ const useFetchMovers = () => {
         const fetchData = async () => {
             setStatus(true);
             
-            const url = 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/v2/get-movers';
+            const url = 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-trending-tickers';
 
             const resp = await fetch(url, {
                 headers: {
@@ -31,19 +31,24 @@ const useFetchMovers = () => {
 
             const json = await resp.json();
 
-            const result = json.finance.result;
-            const topGainer = result[0].quotes[0].symbol;
-            const topLoser = result[1].quotes[0].symbol;
-            const topActive = result[2].quotes[0].symbol;
+            const results = json.finance.result[0].quotes.slice(0,3);
+            const resultObj = results.map(el => {
+                return {
+                    ticker: el.symbol,
+                    name: el.shortName,
+                    price: el.regularMarketPrice.toFixed(2),
+                    delta: el.regularMarketChange.toFixed(1)
+                }
+            })
 
-            setMovers([topGainer, topLoser, topActive]);
+            setTrending(resultObj);
             setStatus(false);
         };
 
         fetchData();
     }, []);
 
-    return { movers, status };
+    return { trending, status };
 }
 
-export { useFetchMovers };
+export { useFetchTrending };

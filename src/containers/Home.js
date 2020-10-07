@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 
-import { useFetchMovers } from '../hooks/useFetchMovers';
+import { useFetchTrending } from '../hooks/useFetchTrending';
 
 import Logo from '../components/Logo';
 import SearchBar from '../components/SearchBar';
 import TickerList from '../components/TickerList';
 
 const Home = () => {
-    const { movers, status } = useFetchMovers();
+    const { trending, status } = useFetchTrending();
 
     return (
         <div>
             <Logo />
             <SearchBar />
-            <TickerList tickers={movers} />
+            <TickerList tickers={trending} />
         </div>
     )
 }

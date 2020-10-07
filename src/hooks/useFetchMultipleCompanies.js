@@ -51,13 +51,16 @@ const generateMutation = companies => {
 const formatJSON = (query, { data }) => {
     // TODO - Return daily change (positive/negative)
 
-    return query.map(c => {
-        return {
-            ticker: c,
-            name: data[`${c}Name`].name,
-            price: data[`${c}Price`].lastPrice
-        }
-    });
+    console.log(query, data);
+    return 'test'
+
+    // return query.map(c => {
+    //     return {
+    //         ticker: c,
+    //         name: data[`${c}Name`].name,
+    //         price: data[`${c}Price`].lastPrice
+    //     }
+    // });
 }
 
 export { useFetchMultipleCompanies };

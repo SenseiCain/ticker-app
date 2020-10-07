@@ -1,19 +1,16 @@
 import React from 'react';
 
-import { useFetchMultipleCompanies } from '../hooks/useFetchMultipleCompanies';
-
 const TickerList = ({ tickers }) => {
 
-    const { resp, status } = useFetchMultipleCompanies(tickers);
-
     const generateCards = () => {
-        return Object.keys(resp).map((key, i) => {
+        return tickers.map((el, i) => {
             return (
                 <div key={i}>
                     <ul>
-                        <li>{resp[key].name}</li>
-                        <li>{resp[key].ticker}</li>
-                        <li>{resp[key].price}</li>
+                        <li>{el.name}</li>
+                        <li>{el.ticker}</li>
+                        <li>{el.price}</li>
+                        <li>{el.delta}</li>
                     </ul>
                 </div>
             )
