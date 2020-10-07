@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 
+// Alpha Finance GraphQL
+// Use to fetch Company Name, Current Price, & Percentage Change
+
 const useFetchMultipleCompanies = query => {
     const [resp, setResp] = useState({});
     const [status, setStatus] = useState(false);
@@ -39,13 +42,16 @@ const useFetchMultipleCompanies = query => {
 
 const generateMutation = companies => {
     const mutationObjs = companies.map(c => {
-        return  `${c.ticker}Name: company(identifier: "${c.ticker}"){ name } ${c.ticker}Price:realtimeStockPrice(identifier: "${c.ticker}") { lastPrice }`;
+        return  `${c.ticker}Name: company(identifier: "${c.ticker}"){ name } ${c.ticker}Price:realtimeStockPrice(identifier: "${c.ticker}") { lastPrice } ${c.ticker}Close: apiResponseStockExchangeStockPrices(identifier: "${c.ticker}") { stockPrices { close } }`;
     });
 
     return `{ ${mutationObjs.join(' ')} }`
 }
 
 const formatJSON = (query, { data }) => {
+
+    // TODO - Return daily change (positive/negative)
+
     return query.map(({ticker}) => {
         return {
             ticker,
