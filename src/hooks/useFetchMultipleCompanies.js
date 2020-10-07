@@ -42,7 +42,7 @@ const useFetchMultipleCompanies = query => {
 
 const generateMutation = companies => {
     const mutationObjs = companies.map(c => {
-        return  `${c.ticker}Name: company(identifier: "${c.ticker}"){ name } ${c.ticker}Price:realtimeStockPrice(identifier: "${c.ticker}") { lastPrice } ${c.ticker}Close: apiResponseStockExchangeStockPrices(identifier: "${c.ticker}") { stockPrices { close } }`;
+        return  `${c.ticker}Name: company(identifier: "${c.ticker}"){ name } ${c.ticker}Price:realtimeStockPrice(identifier: "${c.ticker}") { lastPrice }`;
     });
 
     return `{ ${mutationObjs.join(' ')} }`
