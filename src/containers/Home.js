@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { useFetchTrending } from '../hooks/useFetchTrending';
+import { useFetchNews } from '../hooks/useFetchNews';
 
 import Logo from '../components/Logo';
 import SearchBar from '../components/SearchBar';
@@ -8,6 +9,7 @@ import TickerList from '../components/TickerList';
 
 const Home = () => {
     const { trending, status } = useFetchTrending();
+    const { news, statusNews } = useFetchNews();
 
     return (
         <div>
