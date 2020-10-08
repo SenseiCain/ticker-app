@@ -16,7 +16,7 @@ const Home = () => {
         <div>
             <Logo />
             <SearchBar />
-            <TickerList tickers={trending} />
+            <TickerList title="Trending" tickers={trending} />
             <NewsList news={news} />
         </div>
     )

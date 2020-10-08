@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TickerList = ({ tickers }) => {
+const TickerList = ({ title, tickers }) => {
 
     const generateCards = () => {
         return tickers.map((el, i) => {
@@ -19,6 +19,7 @@ const TickerList = ({ tickers }) => {
 
     return(
         <div>
+            <h1>{title}</h1>
             {generateCards()}
         </div>
     )
