@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom'
 
 import { QueryContext } from '../context/query-context';
 
 const SearchBar = () => {
     const [query, setQuery] = useContext(QueryContext);
+    const history = useHistory();
 
     const handleChange = ({ target: {value} }) => {
         setQuery(value);
@@ -11,6 +13,7 @@ const SearchBar = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
+        history.push(`/${query}`);
         setQuery('');
     }
 
