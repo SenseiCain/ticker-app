@@ -4,6 +4,7 @@ import './App.css';
 
 import { QueryProvider } from './context/query-context';
 import Home from './containers/Home';
+import CompanyPage from './containers/CompanyPage';
 
 function App() {
 
@@ -13,6 +14,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Home/>
+          </Route>
+          <Route path="/:ticker">
+            <CompanyPage/>
           </Route>
         </Switch>
       </Router>
