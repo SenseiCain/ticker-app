@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
-
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import './App.css';
 
 import { QueryProvider } from './context/query-context';
 import Home from './containers/Home';
-import './App.css';
 
 function App() {
 
   return (
     <QueryProvider>
-      <Home/>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home/>
+          </Route>
+        </Switch>
+      </Router>
     </QueryProvider>
   );
 }
