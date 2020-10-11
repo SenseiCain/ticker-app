@@ -4,6 +4,7 @@ import { useFetchBasicInfo } from '../hooks/useFetchBasicInfo';
 
 import CompanyData from '../components/CompanyData';
 import CompanyInfo from '../components/CompanyInfo';
+import CompanyTitle from '../components/CompanyTitle';
 
 const CompanyPage = props => {
     let { ticker } = useParams();
@@ -13,6 +14,7 @@ const CompanyPage = props => {
     return (
         <div>
             <Link to="/">Back</Link>
+            <CompanyTitle title={data.title}/>
             <CompanyInfo info={data.info} />
             <CompanyData data={data.data} />
         </div>
