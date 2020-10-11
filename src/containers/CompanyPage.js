@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { useFetchBasicInfo } from '../hooks/useFetchBasicInfo';
 
 import CompanyData from '../components/CompanyData';
@@ -12,6 +12,7 @@ const CompanyPage = props => {
 
     return (
         <div>
+            <Link to="/">Back</Link>
             <CompanyInfo info={data.info} />
             <CompanyData data={data.data} />
         </div>
