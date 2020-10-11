@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useParams } from "react-router-dom"
-
 import { useFetchBasicInfo } from '../hooks/useFetchBasicInfo';
+
+import CompanyData from '../components/CompanyData';
 
 const CompanyPage = props => {
     let { ticker } = useParams();
@@ -10,7 +11,7 @@ const CompanyPage = props => {
 
     return (
         <div>
-            
+            <CompanyData data={data.data} />
         </div>
     )
 }

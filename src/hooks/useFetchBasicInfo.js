@@ -28,8 +28,8 @@ const useFetchBasicInfo = (ticker) => {
                 "high": summary.dayHigh.fmt,
                 "mktCap": summary.marketCap.fmt,
                 "prevClose": summary.previousClose.fmt,
-                "52Wkhigh": summary.fiftyTwoWeekHigh.fmt,
-                "52WkLow": summary.fiftyTwoWeekLow.fmt,
+                "fiftyTwoWeekHigh": summary.fiftyTwoWeekHigh.fmt,
+                "fiftyTwoWeekLow": summary.fiftyTwoWeekLow.fmt,
                 "volume": summary.volume.fmt
             };
 
