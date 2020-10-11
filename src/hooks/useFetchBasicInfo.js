@@ -23,6 +23,9 @@ const useFetchBasicInfo = (ticker) => {
             const json = await resp.json();
 
             const summary = json.summaryDetail;
+            const assetProfile = json.assetProfile;
+            const price = json.price;
+
             const resultData = {
                 "open": summary.open.fmt,
                 "high": summary.dayHigh.fmt,
@@ -34,7 +37,7 @@ const useFetchBasicInfo = (ticker) => {
             };
 
 
-            const assetProfile = json.assetProfile;
+            
             const resultInfo = {
                 "hq": `${assetProfile.city}, ${assetProfile.state}`,
                 "ceo": assetProfile.companyOfficers[0].name,
@@ -44,7 +47,13 @@ const useFetchBasicInfo = (ticker) => {
                 "fte": assetProfile.fullTimeEmployees
             }
 
-            const resultObj = { data: resultData, info: resultInfo };
+            const resultTitle = {
+                name: price.shortName,
+                ticker: json.symbol,
+                delta: price.regularMarketChangePercent.fmt
+            }
+
+            const resultObj = { data: resultData, info: resultInfo, title: resultTitle };
 
             setData(resultObj);
             setStatusInfo(false);
