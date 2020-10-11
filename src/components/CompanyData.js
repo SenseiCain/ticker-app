@@ -1,12 +1,11 @@
 import React from 'react';
-import CompanyPage from '../containers/CompanyPage';
 
 const CompanyData = ({ data }) => {
 
     const genData = data => {
         if(data) {
             const { open, high, mktCap, prevClose, fiftyTwoWeekHigh, fiftyTwoWeekLow, volume } = data;
-            
+
             return (
                 <div>
                     <h1>Data</h1>
