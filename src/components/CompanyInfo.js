@@ -16,7 +16,7 @@ const CompanyInfo= ({ info }) => {
                         <li>CEO: {ceo}</li>
                         <li>FTE: {fte}</li>
                         <li>Description: {description}</li>
-                        <li>Website: {website}</li>
+                        <li>Website: <a href={website} target="_blank">{website}</a></li>
                     </ul>
                 </div>
             )
