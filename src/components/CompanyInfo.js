@@ -5,13 +5,6 @@ const CompanyInfo= ({ info }) => {
     const genInfo = data => {
         if(data) {
 
-            // "hq": `${assetProfile.city}, ${assetProfile.state}`,
-            // "ceo": assetProfile.companyOfficers[0].name,
-            // "industry": assetProfile.industry,
-            // "website": assetProfile.website,
-            // "description": assetProfile.longBusinessSummary,
-            // "fte": assetProfile.fullTimeEmployees
-
             const { hq, ceo, industry, website, description, fte } = data;
 
             return (
