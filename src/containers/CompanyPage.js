@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { useParams, Link, Route } from "react-router-dom"
 import { useFetchBasicInfo } from '../hooks/useFetchBasicInfo';
+import { useFetchChartData } from '../hooks/useFetchChartData';
 
 import CompanyChart from '../components/CompanyChart';
 import CompanyData from '../components/CompanyData';
@@ -8,9 +9,11 @@ import CompanyInfo from '../components/CompanyInfo';
 import CompanyTitle from '../components/CompanyTitle';
 
 const CompanyPage = ({ match }) => {
-    let { ticker } = useParams();
+    const [range, setRange] = useState('day');
 
+    const { ticker } = useParams();
     const { data } = useFetchBasicInfo(ticker);
+    const { chartData } = useFetchChartData(ticker);
 
     return (
         <div>
