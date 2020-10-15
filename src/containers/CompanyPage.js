@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
-import { useParams, Link } from "react-router-dom"
+import { useParams, Link, Route } from "react-router-dom"
 import { useFetchBasicInfo } from '../hooks/useFetchBasicInfo';
 
 import CompanyData from '../components/CompanyData';
 import CompanyInfo from '../components/CompanyInfo';
 import CompanyTitle from '../components/CompanyTitle';
 
-const CompanyPage = props => {
+const CompanyPage = ({ match }) => {
     let { ticker } = useParams();
 
     const { data } = useFetchBasicInfo(ticker);
@@ -15,8 +15,16 @@ const CompanyPage = props => {
         <div>
             <Link to="/">Back</Link>
             <CompanyTitle title={data.title}/>
-            <CompanyInfo info={data.info} />
-            <CompanyData data={data.data} />
+
+            <Link to={`${match.url}/info`}>Info</Link>
+            <Link to={`${match.url}/data`}>Data</Link>
+
+            <Route path={`${match.path}/info`}>
+                <CompanyInfo info={data.info} />
+            </Route>
+            <Route path={`${match.path}/data`}>
+                <CompanyData data={data.data} />
+            </Route>
         </div>
     )
 }
