@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams, Link, Route } from "react-router-dom"
 import { useFetchBasicInfo } from '../hooks/useFetchBasicInfo';
 
+import CompanyChart from '../components/CompanyChart';
 import CompanyData from '../components/CompanyData';
 import CompanyInfo from '../components/CompanyInfo';
 import CompanyTitle from '../components/CompanyTitle';
@@ -18,6 +19,8 @@ const CompanyPage = ({ match }) => {
 
             <Link to={`${match.url}/info`}>Info</Link>
             <Link to={`${match.url}/data`}>Data</Link>
+
+            <CompanyChart />
 
             <Route path={`${match.path}/info`}>
                 <CompanyInfo info={data.info} />
