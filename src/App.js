@@ -15,9 +15,9 @@ function App() {
           <Route exact path="/">
             <Home/>
           </Route>
-          <Route path="/:ticker">
-            <CompanyPage/>
-          </Route>
+          <Route 
+            path="/:ticker"
+            render={(props) => <CompanyPage {...props}/>}/>
         </Switch>
       </Router>
     </QueryProvider>
