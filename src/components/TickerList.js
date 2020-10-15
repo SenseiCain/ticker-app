@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TickerList = ({ title, tickers }) => {
 
@@ -8,7 +9,9 @@ const TickerList = ({ title, tickers }) => {
                 <div key={i}>
                     <ul>
                         <li>{el.name}</li>
-                        <li>{el.ticker}</li>
+                        <li>
+                            <Link to={`/${el.ticker}`}>{el.ticker}</Link>
+                        </li>
                         <li>{el.price}</li>
                         <li>{el.delta}</li>
                     </ul>
