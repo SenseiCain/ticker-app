@@ -25,9 +25,10 @@ const CompanyPage = ({ match }) => {
                 <CompanyInfo info={data.info} />
             </Route>
 
-            <Route exact path={[`${match.path}`, `${match.path}/chart`]}>
-                <CompanyChart />
-            </Route>
+            <Route 
+                exact 
+                path={[`${match.path}`, `${match.path}/chart`]}
+                render={props => <CompanyChart {...props} />}/>
 
             <Route path={`${match.path}/data`}>
                 <CompanyData data={data.data} />

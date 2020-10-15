@@ -1,7 +1,8 @@
 import React from 'react';
-import CompanyPage from '../containers/CompanyPage';
 
-const CompanyChart = props => {
+const CompanyChart = ({ match: { params: { ticker } } }) => {
+    console.log(ticker);
+
     return (
         <div>Chart</div>
     )
