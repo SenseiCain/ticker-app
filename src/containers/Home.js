@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
-import { useFetchTrending } from '../hooks/useFetchTrending';
 import { useFetchNews } from '../hooks/useFetchNews';
 
 import Logo from '../components/Logo';
@@ -8,8 +7,7 @@ import SearchBar from '../components/SearchBar';
 import TickerList from '../components/TickerList';
 import NewsList from '../components/NewsList';
 
-const Home = () => {
-    const { trending, statusTrending } = useFetchTrending();
+const Home = ({ trending }) => {
     const { news, statusNews } = useFetchNews();
 
     return (
