@@ -7,8 +7,14 @@ import { useFetchTrending } from './hooks/useFetchTrending';
 import Home from './containers/Home';
 import CompanyPage from './containers/CompanyPage';
 
+import { trendingData } from './data';
+
 function App() {
-  const { trending, statusTrending } = useFetchTrending();
+  // DEV
+  const trending = trendingData;
+
+  // PRODUCTION
+  // const { trending, statusTrending } = useFetchTrending();
 
   return (
     <QueryProvider>

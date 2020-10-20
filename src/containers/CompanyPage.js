@@ -8,12 +8,23 @@ import CompanyData from '../components/CompanyData';
 import CompanyInfo from '../components/CompanyInfo';
 import CompanyTitle from '../components/CompanyTitle';
 
+import { companyData } from "../data";
+
 const CompanyPage = ({ match }) => {
     const [range, setRange] = useState('day');
-
     const { ticker } = useParams();
-    const { data } = useFetchBasicInfo(ticker);
-    const { chartData } = useFetchChartData(ticker);
+
+    // DEV
+    const { chartData } = 1;
+    const data = companyData["IBM"];
+
+    // PRODUCTION
+    // const { data } = useFetchBasicInfo(ticker);
+    // const { chartData } = useFetchChartData(ticker, range);
+
+    const handleChange = type => {
+        setRange(type);
+    }
 
     return (
         <div>
@@ -31,7 +42,7 @@ const CompanyPage = ({ match }) => {
             <Route 
                 exact 
                 path={[`${match.path}`, `${match.path}/chart`]}
-                render={props => <CompanyChart {...props} chartData={chartData} />}/>
+                render={props => <CompanyChart {...props} chartData={chartData} handleChange={handleChange} />}/>
 
             <Route path={`${match.path}/data`}>
                 <CompanyData data={data.data} />
