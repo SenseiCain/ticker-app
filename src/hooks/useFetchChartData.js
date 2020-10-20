@@ -53,8 +53,6 @@ const useFetchChartData = (ticker, time) => {
 
         setStatusChart(false);
         setChartData(returnArr);
-
-        console.log(returnArr);
     }
 
     useEffect(() => {

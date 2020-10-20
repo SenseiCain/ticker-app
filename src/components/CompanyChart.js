@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CompanyChart = ({ handleChange, chartData }) => {
-
+    
     return (
         <div>
             <h1>Chart</h1>

@@ -15,8 +15,9 @@ const CompanyPage = ({ match }) => {
     const { ticker } = useParams();
 
     // DEV
-    const { chartData } = 1;
+    // const { chartData } = 1;
     const data = companyData["IBM"];
+    const chartData = companyData["IBM"].chart.month;
 
     // PRODUCTION
     // const { data } = useFetchBasicInfo(ticker);
