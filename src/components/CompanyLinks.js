@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 const CompanyLinks = ({ baseUrl }) => {
     return (
-        <div>
+        <div className="d-flex justify-content-around">
             <Link to={`${baseUrl}/info`}>Info</Link>
             <Link to={`${baseUrl}/chart`}>Chart</Link>
             <Link to={`${baseUrl}/data`}>Data</Link>
