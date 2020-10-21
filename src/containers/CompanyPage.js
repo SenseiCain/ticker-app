@@ -10,6 +10,7 @@ import CompanyChart from '../components/CompanyChart';
 import CompanyData from '../components/CompanyData';
 import CompanyInfo from '../components/CompanyInfo';
 import CompanyTitle from '../components/CompanyTitle';
+import CompanyLinks from '../components/CompanyLinks';
 
 import { companyData } from "../data";
 
@@ -37,9 +38,7 @@ const CompanyPage = ({ match }) => {
             </Link>
             <CompanyTitle title={data.title}/>
 
-            <Link to={`${match.url}/info`}>Info</Link>
-            <Link to={`${match.url}/chart`}>Chart</Link>
-            <Link to={`${match.url}/data`}>Data</Link>
+            <CompanyLinks baseUrl={match.url} />
 
             <Route path={`${match.path}/info`}>
                 <CompanyInfo info={data.info} />
