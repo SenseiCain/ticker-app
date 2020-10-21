@@ -32,7 +32,7 @@ const CompanyPage = ({ match }) => {
     }
 
     return (
-        <div className="p-2">
+        <div className="p-2 d-flex flex-column">
             <div className="border-bottom">
                 <Link to="/">
                     <FontAwesomeIcon icon={faArrowLeft} className="text-primary"/>

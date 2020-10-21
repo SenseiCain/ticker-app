@@ -12,7 +12,10 @@ const CompanyChart = ({ handleChange, chartData }) => {
         datasets: [{
             fill: false,
             lineTension: 0,
-            data: prices
+            data: prices,
+            pointBorderColor: "#007bff",
+            pointBackgroundColor: "#007bff",
+            borderColor: "#007bff"
         }]
     }
 
@@ -49,7 +52,6 @@ const CompanyChart = ({ handleChange, chartData }) => {
 
     return (
         <div>
-            <h1>Chart</h1>
             <Line data={data} options={options} width={300} height={300} />
             <ChartRanges handleChange={handleChange}/>
         </div>
