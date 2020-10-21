@@ -22,11 +22,13 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            <Home trending={trending}/>
+            <Home 
+              className="container"
+              trending={trending}/>
           </Route>
           <Route 
             path="/:ticker"
-            render={(props) => <CompanyPage {...props}/>}/>
+            render={(props) => <CompanyPage {...props} className="container" />}/>
         </Switch>
       </Router>
     </QueryProvider>

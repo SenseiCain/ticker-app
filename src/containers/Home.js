@@ -16,7 +16,7 @@ const Home = ({ trending }) => {
     // const { news, statusNews } = useFetchNews();
 
     return (
-        <div>
+        <div className="px-2">
             <Logo />
             <SearchBar />
             <TickerList title="Trending" tickers={trending} />
