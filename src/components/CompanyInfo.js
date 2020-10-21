@@ -8,15 +8,27 @@ const CompanyInfo= ({ info }) => {
             const { hq, ceo, industry, website, description, fte } = data;
 
             return (
-                <div>
-                    <h1>Info</h1>
-                    <ul>
-                        <li>HQ: {hq}</li>
-                        <li>Industry: {industry}</li>
-                        <li>CEO: {ceo}</li>
-                        <li>FTE: {fte}</li>
-                        <li>Description: {description}</li>
-                        <li>Website: <a href={website} target="_blank">{website}</a></li>
+                <div className="pt-4">
+                    <ul className="list-unstyled">
+                        <li className="pb-2">
+                            HQ: <span className="text-secondary">{hq}</span>
+                        </li>
+                        <li className="pb-2">
+                            Industry: <span className="text-secondary">{industry}</span>
+                        </li>
+                        <li className="pb-2">
+                            CEO: <span className="text-secondary">{ceo}</span>
+                        </li>
+                        <li className="pb-2">
+                            FTE: <span className="text-secondary">{fte}</span>
+                        </li>
+                        <li className="pb-2">
+                            Website: <a href={website} target="_blank">{website}</a>
+                        </li>
+                        <li className="crop-text">
+                            Description: <span className="text-secondary">{description}</span>
+                        </li>
+                        
                     </ul>
                 </div>
             )
