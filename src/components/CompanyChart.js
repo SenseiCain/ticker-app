@@ -3,7 +3,6 @@ import { Line } from 'react-chartjs-2';
 
 const CompanyChart = ({ handleChange, chartData }) => {
     const labels = chartData.map(el => new Date(el.time));
-    console.log(labels)
     const prices = chartData.map(el => parseFloat(el.price.toFixed(2)));
 
     const data = {
