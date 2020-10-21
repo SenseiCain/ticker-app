@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 
 import { useFetchNews } from '../hooks/useFetchNews';
 import { newsData } from '../data';

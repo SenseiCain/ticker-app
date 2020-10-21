@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
 
+import { QueryProvider } from './context/query-context';
 import { useFetchTrending } from './hooks/useFetchTrending';
 import Home from './containers/Home';
 import CompanyPage from './containers/CompanyPage';
@@ -16,16 +17,18 @@ function App() {
   // const { trending, statusTrending } = useFetchTrending();
 
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <Home trending={trending}/>
-        </Route>
-        <Route 
-          path="/:ticker"
-          render={(props) => <CompanyPage {...props}/>}/>
-      </Switch>
-    </Router>
+    <QueryProvider>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home trending={trending}/>
+          </Route>
+          <Route 
+            path="/:ticker"
+            render={(props) => <CompanyPage {...props}/>}/>
+        </Switch>
+      </Router>
+    </QueryProvider>
   );
 }
 
