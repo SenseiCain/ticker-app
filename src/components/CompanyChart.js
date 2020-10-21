@@ -1,6 +1,8 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 
+import ChartRanges from './ChartRanges';
+
 const CompanyChart = ({ handleChange, chartData }) => {
     const labels = chartData.map(el => new Date(el.time));
     const prices = chartData.map(el => parseFloat(el.price.toFixed(2)));
@@ -49,11 +51,7 @@ const CompanyChart = ({ handleChange, chartData }) => {
         <div>
             <h1>Chart</h1>
             <Line data={data} options={options} width={300} height={300} />
-            <button onClick={() => handleChange('day')}>Day</button>
-            <button onClick={() => handleChange('week')}>Week</button>
-            <button onClick={() => handleChange('month')}>Month</button>
-            <button onClick={() => handleChange('3month')}>3 Month</button>
-            <button onClick={() => handleChange('1yr')}>Year</button>
+            <ChartRanges handleChange={handleChange}/>
         </div>
     )
 }
