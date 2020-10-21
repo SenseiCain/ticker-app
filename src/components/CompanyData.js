@@ -7,16 +7,15 @@ const CompanyData = ({ data }) => {
             const { open, high, mktCap, prevClose, fiftyTwoWeekHigh, fiftyTwoWeekLow, volume } = data;
 
             return (
-                <div>
-                    <h1>Data</h1>
-                    <ul>
-                        <li>Open: {open}</li>
-                        <li>High: {high}</li>
-                        <li>Market Cap: {mktCap}</li>
-                        <li>Prev Close: {prevClose}</li>
-                        <li>52 Week High: {fiftyTwoWeekHigh}</li>
-                        <li>52 Week Low: {fiftyTwoWeekLow}</li>
-                        <li>Volume: {volume}</li>
+                <div className="pt-4">
+                    <ul className="list-unstyled">
+                        <li className="pb-2">Open: {open}</li>
+                        <li className="pb-2">High: {high}</li>
+                        <li className="pb-2">Market Cap: {mktCap}</li>
+                        <li className="pb-2">Prev Close: {prevClose}</li>
+                        <li className="pb-2">52 Week High: {fiftyTwoWeekHigh}</li>
+                        <li className="pb-2">52 Week Low: {fiftyTwoWeekLow}</li>
+                        <li className="pb-2">Volume: {volume}</li>
                     </ul>
                 </div>
             )
