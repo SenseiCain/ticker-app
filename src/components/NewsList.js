@@ -5,16 +5,19 @@ const NewsList = ({ news }) => {
     const generateArticles = (newsArr) => {
         return newsArr.map((n, i) => {
             return (
-                <div key={i}>
+                <li key={i} className="list-group-item">
                     <a href={n.url}>{n.title}</a>
-                </div>
+                </li>
             )
         })
     }
 
     return (
         <div>
-            {generateArticles(news)}
+            <h3>News</h3>
+            <ul className="list-group">
+                {generateArticles(news)}
+            </ul>
         </div>
     )
 }
