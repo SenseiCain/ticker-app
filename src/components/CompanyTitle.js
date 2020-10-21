@@ -6,11 +6,21 @@ const CompanyTitle = ({ title }) => {
         if(data) {
             const { name, ticker, delta } = data;
 
+            const updateDetla = delta => {
+                if (delta > 0) {
+                    return (<span className="text-success">{delta}</span>)
+                } else {
+                    return (<span className="text-danger">{delta}</span>)
+                }
+            }
+
             return (
-                <div>
-                    <h1>{name}</h1>
-                    <h3>{ticker}</h3>
-                    <h3>{delta}</h3>
+                <div className="d-flex align-items-center flex-column py-5">
+                    <h3 className="pt-0 pb-1 m-0">{ticker}</h3>
+                    <h6 className="pt-0 pb-1 m-0 text-secondary">{name}</h6>
+                    <h6 className="pt-0 pb-1 m-0">
+                        {updateDetla(delta)}
+                    </h6>
                 </div>
             )
         } else {

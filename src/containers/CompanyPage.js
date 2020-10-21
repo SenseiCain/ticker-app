@@ -3,6 +3,9 @@ import { useParams, Link, Route } from "react-router-dom"
 import { useFetchBasicInfo } from '../hooks/useFetchBasicInfo';
 import { useFetchChartData } from '../hooks/useFetchChartData';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+
 import CompanyChart from '../components/CompanyChart';
 import CompanyData from '../components/CompanyData';
 import CompanyInfo from '../components/CompanyInfo';
@@ -28,8 +31,10 @@ const CompanyPage = ({ match }) => {
     }
 
     return (
-        <div>
-            <Link to="/">Back</Link>
+        <div className="p-2">
+            <Link to="/">
+                <FontAwesomeIcon icon={faArrowLeft} className="text-primary"/>
+            </Link>
             <CompanyTitle title={data.title}/>
 
             <Link to={`${match.url}/info`}>Info</Link>
