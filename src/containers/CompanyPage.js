@@ -33,12 +33,13 @@ const CompanyPage = ({ match }) => {
 
     return (
         <div className="p-2">
-            <Link to="/">
-                <FontAwesomeIcon icon={faArrowLeft} className="text-primary"/>
-            </Link>
-            <CompanyTitle title={data.title}/>
-
-            <CompanyLinks baseUrl={match.url} />
+            <div className="border-bottom">
+                <Link to="/">
+                    <FontAwesomeIcon icon={faArrowLeft} className="text-primary"/>
+                </Link>
+                <CompanyTitle title={data.title}/>
+                <CompanyLinks baseUrl={match.url} />
+            </div>
 
             <Route path={`${match.path}/info`}>
                 <CompanyInfo info={data.info} />
