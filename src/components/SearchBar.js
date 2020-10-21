@@ -2,6 +2,9 @@ import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom'
 
 import { QueryContext } from '../context/query-context';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+
 
 const SearchBar = () => {
     const [query, setQuery] = useContext(QueryContext);
@@ -18,12 +21,19 @@ const SearchBar = () => {
     }
 
     return ( 
-        <div id="searchbar">
-            <form onSubmit={handleSubmit}>
-                <input type="text" value={query} onChange={handleChange} />
-                <input type="submit" />
+            <form onSubmit={handleSubmit} className="pb-3">
+                <div className="d-flex align-items-center">
+                    <input 
+                        className="form-control form-control-sm flex-1 mr-2" 
+                        type="text" 
+                        placeholder="Search"
+                        aria-label="Search"
+                        value={query}
+                        onChange={handleChange}/>
+                    <FontAwesomeIcon icon={faSearch} className="text-primary"/>
+                </div>
+                
             </form>
-        </div>
     )
 }
 
