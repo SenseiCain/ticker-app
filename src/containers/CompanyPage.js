@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams, Link, Route } from "react-router-dom"
+import { useParams, Link, Route, Switch } from "react-router-dom"
 import { useFetchBasicInfo } from '../hooks/useFetchBasicInfo';
 import { useFetchChartData } from '../hooks/useFetchChartData';
 
@@ -41,18 +41,21 @@ const CompanyPage = ({ match }) => {
                 <CompanyLinks baseUrl={match.url} />
             </div>
 
-            <Route path={`${match.path}/info`}>
-                <CompanyInfo info={data.info} />
-            </Route>
+            <Switch>
+                <Route 
+                    path={`${match.path}/info`}
+                    render={() => <CompanyInfo info={data.info} />}/>
 
-            <Route 
-                exact 
-                path={[`${match.path}`, `${match.path}/chart`]}
-                render={props => <CompanyChart {...props} chartData={chartData} handleChange={handleChange} />}/>
+                <Route 
+                    exact 
+                    path={[`${match.path}`, `${match.path}/chart`]}
+                    render={props => <CompanyChart {...props} chartData={chartData} handleChange={handleChange} />}/>
 
-            <Route path={`${match.path}/data`}>
-                <CompanyData data={data.data} />
-            </Route>
+                <Route 
+                    path={`${match.path}/data`}
+                    render={() => <CompanyData data={data.data} />}/>
+            </Switch>
+            
         </div>
     )
 }
