@@ -12,6 +12,7 @@ const CompanyChart = ({ handleChange, chartData }) => {
         datasets: [{
             fill: false,
             lineTension: 0,
+            pointRadius: 0,
             data: prices,
             pointBorderColor: "#007bff",
             pointBackgroundColor: "#007bff",
@@ -20,8 +21,8 @@ const CompanyChart = ({ handleChange, chartData }) => {
     }
 
     const options = {
-        maintainAspectRatio: false,
-        responsive: false,
+        maintainAspectRatio: true,
+        responsive: true,
         legend: { display: false },
         scales: {
             xAxes: [{
@@ -51,8 +52,8 @@ const CompanyChart = ({ handleChange, chartData }) => {
     }
 
     return (
-        <div>
-            <Line data={data} options={options} width={300} height={300} />
+        <div id="company-chart" className="">
+            <Line data={data} options={options}/>
             <ChartRanges handleChange={handleChange}/>
         </div>
     )
