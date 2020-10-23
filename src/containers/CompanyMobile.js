@@ -1,9 +1,7 @@
 import React from 'react';
-import { Link, Route, Switch } from "react-router-dom"
+import { Route, Switch } from "react-router-dom"
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-
+import BackButton from '../components/BackButton';
 import CompanyChart from '../components/CompanyChart';
 import CompanyData from '../components/CompanyData';
 import CompanyInfo from '../components/CompanyInfo';
@@ -15,9 +13,8 @@ const CompanyMobile = ({ handleChange, data, chartData, match }) => {
     return (
         <div>
             <div className="border-bottom">
-                <Link to="/">
-                    <FontAwesomeIcon icon={faArrowLeft} className="text-primary"/>
-                </Link>
+                <BackButton />
+
                 <div className="py-5">
                     <CompanyTitle title={data.title}/>
                 </div>
