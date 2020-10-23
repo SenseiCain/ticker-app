@@ -1,16 +1,9 @@
 import React, { useState } from 'react';
-import { useParams, Link, Route, Switch } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { useFetchBasicInfo } from '../hooks/useFetchBasicInfo';
 import { useFetchChartData } from '../hooks/useFetchChartData';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-
-import CompanyChart from '../components/CompanyChart';
-import CompanyData from '../components/CompanyData';
-import CompanyInfo from '../components/CompanyInfo';
-import CompanyTitle from '../components/CompanyTitle';
-import CompanyLinks from '../components/CompanyLinks';
+import CompanyMobile from './CompanyMobile';
 
 import { companyData } from "../data";
 
@@ -33,29 +26,7 @@ const CompanyPage = ({ match }) => {
 
     return (
         <div id="company-page" className="p-2 d-flex flex-column container">
-            <div className="border-bottom">
-                <Link to="/">
-                    <FontAwesomeIcon icon={faArrowLeft} className="text-primary"/>
-                </Link>
-                <CompanyTitle title={data.title}/>
-                <CompanyLinks baseUrl={match.url} />
-            </div>
-
-            <Switch>
-                <Route 
-                    path={`${match.path}/info`}
-                    render={() => <CompanyInfo info={data.info} />}/>
-
-                <Route 
-                    exact 
-                    path={[`${match.path}`, `${match.path}/chart`]}
-                    render={props => <CompanyChart {...props} chartData={chartData} handleChange={handleChange} />}/>
-
-                <Route 
-                    path={`${match.path}/data`}
-                    render={() => <CompanyData data={data.data} />}/>
-            </Switch>
-            
+            <CompanyMobile data={data} chartData={chartData} match={match} />
         </div>
     )
 }
