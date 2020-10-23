@@ -9,7 +9,7 @@ import CompanyDesktop from './CompanyDesktop';
 
 import { companyData } from "../data";
 
-const CompanyPage = ({ match }) => {
+const CompanyPage = ({ match, trending }) => {
     const [range, setRange] = useState('day');
     const { ticker } = useParams();
     const isDisplayed = useMediaQuery("(min-width: 768px)");
@@ -30,7 +30,7 @@ const CompanyPage = ({ match }) => {
     return (
         <div id="company-page" className="p-2 d-flex flex-column container">
             {isDisplayed ? 
-                <CompanyDesktop />:
+                <CompanyDesktop data={data} chartData={chartData} trending={trending} handleChange={handleChange}/>:
                 <CompanyMobile data={data} chartData={chartData} match={match} handleChange={handleChange} />
             }
             

@@ -27,7 +27,7 @@ function App() {
           </Route>
           <Route 
             path="/:ticker"
-            render={(props) => <CompanyPage {...props} className="container" />}/>
+            render={(props) => <CompanyPage {...props} trending={trending} className="container" />}/>
         </Switch>
       </Router>
     </QueryProvider>
