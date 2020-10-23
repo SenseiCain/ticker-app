@@ -15,9 +15,9 @@ const CompanyTitle = ({ title }) => {
             }
 
             return (
-                <div className="d-flex align-items-center flex-column py-5">
+                <div className="d-flex align-items-center flex-column">
                     <h3 className="pt-0 pb-1 m-0">{ticker}</h3>
-                    <h6 className="pt-0 pb-1 m-0 text-secondary">{name}</h6>
+                    <h6 className="pt-0 pb-1 m-0 text-secondary text-center">{name}</h6>
                     <h6 className="pt-0 pb-1 m-0">
                         {updateDetla(delta)}
                     </h6>
