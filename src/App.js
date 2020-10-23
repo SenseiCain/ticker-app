@@ -23,7 +23,6 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Home 
-              className="container"
               trending={trending}/>
           </Route>
           <Route 

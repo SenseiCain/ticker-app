@@ -10,12 +10,6 @@ html, body {
   min-height: 100%;
 }
 
-#company-page {
-  position: absolute;
-  min-height: 100%;
-  width: 100%;
-}
-
 #company-chart {
   position: relative;
   flex: 1;
