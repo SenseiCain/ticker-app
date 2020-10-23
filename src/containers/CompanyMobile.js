@@ -11,7 +11,7 @@ import CompanyLinks from '../components/CompanyLinks';
 const CompanyMobile = ({ handleChange, data, chartData, match }) => {
 
     return (
-        <div>
+        <div className="pt-5 px-3">
             <div className="border-bottom">
                 <BackButton />
 
