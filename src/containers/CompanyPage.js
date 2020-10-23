@@ -5,6 +5,7 @@ import { useFetchBasicInfo } from '../hooks/useFetchBasicInfo';
 import { useFetchChartData } from '../hooks/useFetchChartData';
 
 import CompanyMobile from './CompanyMobile';
+import CompanyDesktop from './CompanyDesktop';
 
 import { companyData } from "../data";
 
@@ -29,7 +30,7 @@ const CompanyPage = ({ match }) => {
     return (
         <div id="company-page" className="p-2 d-flex flex-column container">
             {isDisplayed ? 
-                '':
+                <CompanyDesktop />:
                 <CompanyMobile data={data} chartData={chartData} match={match} handleChange={handleChange} />
             }
             
