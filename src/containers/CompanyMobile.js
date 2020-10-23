@@ -11,6 +11,7 @@ import CompanyTitle from '../components/CompanyTitle';
 import CompanyLinks from '../components/CompanyLinks';
 
 const CompanyMobile = ({ handleChange, data, chartData, match }) => {
+
     return (
         <div>
             <div className="border-bottom">

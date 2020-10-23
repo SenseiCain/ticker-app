@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from "react-router-dom"
+import { useMediaQuery } from '../hooks/useMediaQuery';
 import { useFetchBasicInfo } from '../hooks/useFetchBasicInfo';
 import { useFetchChartData } from '../hooks/useFetchChartData';
 
@@ -10,6 +11,7 @@ import { companyData } from "../data";
 const CompanyPage = ({ match }) => {
     const [range, setRange] = useState('day');
     const { ticker } = useParams();
+    const isDisplayed = useMediaQuery("(min-width: 768px)");
 
     // DEV
     // const { chartData } = 1;
@@ -26,7 +28,12 @@ const CompanyPage = ({ match }) => {
 
     return (
         <div id="company-page" className="p-2 d-flex flex-column container">
-            <CompanyMobile data={data} chartData={chartData} match={match} handleChange={handleChange} />
+            {isDisplayed ? 
+                '':
+                <CompanyMobile data={data} chartData={chartData} match={match} handleChange={handleChange} />
+            }
+            
+            
         </div>
     )
 }
