@@ -26,7 +26,7 @@ const CompanyPage = ({ match }) => {
 
     return (
         <div id="company-page" className="p-2 d-flex flex-column container">
-            <CompanyMobile data={data} chartData={chartData} match={match} />
+            <CompanyMobile data={data} chartData={chartData} match={match} handleChange={handleChange} />
         </div>
     )
 }
