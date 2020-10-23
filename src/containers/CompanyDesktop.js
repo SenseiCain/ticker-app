@@ -13,9 +13,9 @@ const CompanyDesktop = ({ data, chartData, handleChange, trending }) => {
             <div className="py-4">
                 <BackButton />
             </div>
-            <div className="row">
+            <div className="row px-0">
                 <div className="col-xl-9">
-                    <div className="row border p-3">
+                    <div className="row border py-3 mx-0">
                         <div className="col-9 d-flex align-items-end">
                             <CompanyChart chartData={chartData} handleChange={handleChange} />
                         </div>
@@ -28,7 +28,7 @@ const CompanyDesktop = ({ data, chartData, handleChange, trending }) => {
                     </div>
                     <CompanyInfo info={data.info} />
                 </div>
-                <div className="col-2 pl-3 d-none d-xl-block">
+                <div className="col-3 pl-5 d-none d-xl-block">
                     <TickerList title="Trending" tickers={trending} />
                 </div>
             </div>

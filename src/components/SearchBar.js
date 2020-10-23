@@ -21,7 +21,7 @@ const SearchBar = () => {
     }
 
     return ( 
-            <form onSubmit={handleSubmit} className="pb-3">
+            <form onSubmit={handleSubmit} >
                 <div className="d-flex align-items-center">
                     <input 
                         className="form-control form-control-sm flex-1 mr-2" 

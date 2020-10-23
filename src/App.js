@@ -3,12 +3,13 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import { trendingData } from './data';
 import { QueryProvider } from './context/query-context';
 import { useFetchTrending } from './hooks/useFetchTrending';
+
+import NavBar from './components/NavBar';
 import Home from './containers/Home';
 import CompanyPage from './containers/CompanyPage';
-
-import { trendingData } from './data';
 
 function App() {
   // DEV
@@ -19,6 +20,7 @@ function App() {
 
   return (
     <QueryProvider>
+      <NavBar />
       <Router>
         <Switch>
           <Route exact path="/">
