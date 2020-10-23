@@ -18,7 +18,9 @@ const CompanyMobile = ({ handleChange, data, chartData, match }) => {
                 <Link to="/">
                     <FontAwesomeIcon icon={faArrowLeft} className="text-primary"/>
                 </Link>
-                <CompanyTitle title={data.title}/>
+                <div className="py-5">
+                    <CompanyTitle title={data.title}/>
+                </div>
                 <CompanyLinks baseUrl={match.url} />
             </div>
 
