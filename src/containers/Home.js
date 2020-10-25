@@ -16,7 +16,7 @@ const Home = ({ trending }) => {
     // const { news, statusNews } = useFetchNews();
 
     return (
-        <div className="pt-4 container">
+        <div className="pt-5 container">
             <div className="d-md-none pb-4">
                 <Logo />
                 <SearchBar />

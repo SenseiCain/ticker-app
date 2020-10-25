@@ -12,6 +12,7 @@ import Home from './containers/Home';
 import CompanyPage from './containers/CompanyPage';
 
 function App() {
+
   // DEV
   const trending = trendingData;
 
@@ -20,8 +21,8 @@ function App() {
 
   return (
     <QueryProvider>
-      <NavBar />
       <Router>
+        <NavBar />
         <Switch>
           <Route exact path="/">
             <Home 
