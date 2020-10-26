@@ -16,11 +16,11 @@ function App() {
 
   // DEV
   const trending = trendingData;
-  // const news = newsData;
+  const news = newsData;
 
   // PRODUCTION
   // const { trending, statusTrending } = useFetchTrending();
-  const { news, statusNews } = useFetchNews();
+  // const { news, statusNews } = useFetchNews();
 
   return (
     <QueryProvider>

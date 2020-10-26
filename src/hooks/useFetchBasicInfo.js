@@ -6,22 +6,18 @@ import { useState, useEffect } from 'react';
 const useFetchBasicInfo = (ticker) => {
     const [data, setData] = useState([]);
     const [statusInfo, setStatusInfo] = useState(false);
+    const [redirectInfo, setRedirectInfo] = useState(false);
 
     useEffect(() => {
 
-        const fetchData = async () => {
-            const url = `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-profile?region=US&symbol=${ticker}`;
+        const url = `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-profile?region=US&symbol=${ticker}`;
+        const headers = {
+            "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
+            "x-rapidapi-key": "c2e6cd2352mshc152fd4126f9197p1e9892jsne99352339c02",
+            "useQueryString": true
+        };
 
-            const resp = await fetch(url, {
-                headers: {
-                    "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
-	                "x-rapidapi-key": "c2e6cd2352mshc152fd4126f9197p1e9892jsne99352339c02",
-	                "useQueryString": true
-                }
-            });
-
-            const json = await resp.json();
-
+        const formatJSON = (json) => {
             const summary = json.summaryDetail;
             const assetProfile = json.assetProfile;
             const price = json.price;
@@ -53,16 +49,29 @@ const useFetchBasicInfo = (ticker) => {
                 delta: price.regularMarketChangePercent.fmt
             }
 
-            const resultObj = { data: resultData, info: resultInfo, title: resultTitle };
+            return { data: resultData, info: resultInfo, title: resultTitle };
+        }
 
+        fetch(url, headers).then((response) => {
+            if (response.ok) {
+                return response.json();
+            } else {
+              throw new Error("Couldn't find Company!");
+            }
+          })
+          .then(json => {
+            const resultObj = formatJSON(json);
             setData(resultObj);
             setStatusInfo(false);
-        };
+          })
+          .catch((error) => {
+            setRedirectInfo(true);
+            console.log(error);
+          });
 
-        fetchData();
     }, []);
 
-    return { data, statusInfo };
+    return { data, statusInfo, redirectInfo };
 }
 
 export { useFetchBasicInfo };

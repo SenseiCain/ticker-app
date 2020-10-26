@@ -16,11 +16,11 @@ const CompanyPage = ({ match, trending }) => {
 
     // DEV
     // const { chartData } = 1;
-    const data = companyData["IBM"];
+    // const data = companyData["IBM"];
     const chartData = companyData["IBM"].chart.month;
 
     // PRODUCTION
-    // const { data } = useFetchBasicInfo(ticker);
+    const { data, redirectInfo } = useFetchBasicInfo(ticker);
     // const { chartData } = useFetchChartData(ticker, range);
 
     const handleChange = type => {
@@ -30,11 +30,18 @@ const CompanyPage = ({ match, trending }) => {
     return (
         <div id="company-page" className="p-2 d-flex flex-column container">
             {isDisplayed ? 
-                <CompanyDesktop data={data} chartData={chartData} trending={trending} handleChange={handleChange}/>:
-                <CompanyMobile data={data} chartData={chartData} match={match} handleChange={handleChange} />
+                <CompanyDesktop 
+                    data={data} 
+                    chartData={chartData} 
+                    trending={trending} 
+                    redirectInfo={redirectInfo}
+                    handleChange={handleChange}/>:
+                <CompanyMobile 
+                    data={data} 
+                    chartData={chartData} 
+                    match={match} 
+                    handleChange={handleChange} />
             }
-            
-            
         </div>
     )
 }
