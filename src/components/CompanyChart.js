@@ -64,6 +64,8 @@ const CompanyChart = ({ handleChange, chartData, range }) => {
                                 } else {
                                     return `${value.toString().split(' ')[1]}/${value.getFullYear().toString().slice(-2)}`
                                 }
+                            default: 
+                                break;
                         }
                     }
                 }

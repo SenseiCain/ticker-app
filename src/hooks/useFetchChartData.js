@@ -32,6 +32,8 @@ const useFetchChartData = (ticker, time) => {
                 range = "1y";
                 interval = "1d";
                 break;
+            default:
+                break;
         }
 
         

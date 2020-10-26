@@ -33,7 +33,7 @@ const CompanyData = ({ data, statusInfo }) => {
                 volume: ''
             })
         }
-    }, [statusInfo])
+    }, [statusInfo, data])
 
     return (
         <div className="pt-4">

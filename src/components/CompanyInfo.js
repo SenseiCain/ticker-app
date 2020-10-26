@@ -30,7 +30,7 @@ const CompanyInfo= ({ statusInfo, info }) => {
                 description: ''
             })
         }
-    }, [statusInfo])
+    }, [statusInfo, info])
 
 
     return (
@@ -50,7 +50,7 @@ const CompanyInfo= ({ statusInfo, info }) => {
                             FTE: <span className="text-secondary">{state.fte}</span>
                         </li>
                         <li className="pb-2">
-                            Website: <a href={state.website} target="_blank">{state.website}</a>
+                            Website: <a href={state.website} target="_blank" rel="noopener noreferrer">{state.website}</a>
                         </li>
                         <li className="crop-text">
                             Description: <span className="text-secondary">{state.description}</span>
