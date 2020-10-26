@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from "react-router-dom"
 
 import { companyData } from "../data";
+import { useMediaQuery } from '../hooks/useMediaQuery';
 import { useFetchBasicInfo } from '../hooks/useFetchBasicInfo';
 import { useFetchChartData } from '../hooks/useFetchChartData';
 
