@@ -36,6 +36,7 @@ const CompanyPage = ({ match, trending }) => {
                     trending={trending} 
                     redirectInfo={redirectInfo}
                     statusInfo={statusInfo}
+                    range={range}
                     handleChange={handleChange}/>:
                 <CompanyMobile 
                     data={data} 
@@ -43,6 +44,7 @@ const CompanyPage = ({ match, trending }) => {
                     match={match} 
                     redirectInfo={redirectInfo}
                     statusInfo={statusInfo}
+                    range={range}
                     handleChange={handleChange} />
             }
         </div>

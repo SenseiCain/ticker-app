@@ -8,7 +8,7 @@ import CompanyData from '../components/CompanyData';
 import CompanyInfo from '../components/CompanyInfo';
 import TickerList from '../components/TickerList';
 
-const CompanyDesktop = ({ data, chartData, handleChange, trending, redirectInfo, statusInfo }) => {
+const CompanyDesktop = ({ data, chartData, handleChange, trending, redirectInfo, statusInfo, range }) => {
     return (
         <div>
             {
@@ -22,7 +22,7 @@ const CompanyDesktop = ({ data, chartData, handleChange, trending, redirectInfo,
                             <div className="col-xl-9">
                                 <div className="row border py-3 mx-0">
                                     <div className="col-9 d-flex align-items-end">
-                                        <CompanyChart chartData={chartData} handleChange={handleChange} />
+                                        <CompanyChart chartData={chartData} handleChange={handleChange} range={range} />
                                     </div>
                                     <div className="col-3 border-left">
                                         <CompanyTitle title={data.title} statusInfo={statusInfo}/>

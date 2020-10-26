@@ -8,7 +8,7 @@ import CompanyInfo from '../components/CompanyInfo';
 import CompanyTitle from '../components/CompanyTitle';
 import CompanyLinks from '../components/CompanyLinks';
 
-const CompanyMobile = ({ handleChange, data, chartData, match, redirectInfo }) => {
+const CompanyMobile = ({ handleChange, data, chartData, match, redirectInfo, range }) => {
 
     return (
         <div className="pt-5 px-3">
@@ -33,7 +33,7 @@ const CompanyMobile = ({ handleChange, data, chartData, match, redirectInfo }) =
                             <Route 
                                 exact 
                                 path={[`${match.path}`, `${match.path}/chart`]}
-                                render={props => <CompanyChart {...props} chartData={chartData} handleChange={handleChange} />}/>
+                                render={props => <CompanyChart {...props} chartData={chartData} handleChange={handleChange} range={range} />}/>
 
                             <Route 
                                 path={`${match.path}/data`}

@@ -49,7 +49,7 @@ const useFetchChartData = (ticker, time) => {
         const result = json.chart.result[0];
         const returnArr = result.timestamp.map((time, i) => {
             // Time & Close
-            return { time, price: result.indicators.quote[0].close[i] }
+            return { time: new Date(time * 1000), price: result.indicators.quote[0].close[i] }
         });
 
         setStatusChart(false);
