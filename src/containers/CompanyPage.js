@@ -17,11 +17,11 @@ const CompanyPage = ({ match, trending }) => {
     // DEV
     // const { chartData } = 1;
     // const data = companyData["IBM"];
-    const chartData = companyData["IBM"].chart.month;
+    // const chartData = companyData["IBM"].chart.month;
 
     // PRODUCTION
     const { data, redirectInfo, statusInfo } = useFetchBasicInfo(ticker);
-    // const { chartData } = useFetchChartData(ticker, range);
+    const { chartData } = useFetchChartData(ticker, range);
 
     const handleChange = type => {
         setRange(type);

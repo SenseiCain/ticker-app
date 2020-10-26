@@ -5,6 +5,7 @@ const useFetchChartData = (ticker, time) => {
     const [statusChart, setStatusChart] = useState(false);
 
     const fetchData = async () => {
+        setChartData([])
         setStatusChart(true);
 
         let range;
@@ -57,7 +58,7 @@ const useFetchChartData = (ticker, time) => {
 
     useEffect(() => {
         fetchData();
-    }, [])
+    }, [ticker, time])
 
     return { chartData, statusChart }
 }
