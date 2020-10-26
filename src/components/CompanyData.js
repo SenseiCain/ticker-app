@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const CompanyData = ({ data }) => {
+const CompanyData = ({ data, statusInfo }) => {
     const [state, setState] = useState({
         open: '',
         high: '',
@@ -22,8 +22,18 @@ const CompanyData = ({ data }) => {
                 fiftyTwoWeekLow: data.fiftyTwoWeekLow,
                 volume: data.volume
             });
+        } else {
+            setState({
+                open: '',
+                high: '',
+                mktCap: '',
+                prevClose: '',
+                fiftyTwoWeekHigh: '',
+                fiftyTwoWeekLow: '',
+                volume: ''
+            })
         }
-    }, [data])
+    }, [statusInfo])
 
     return (
         <div className="pt-4">
