@@ -40,6 +40,7 @@ const CompanyPage = ({ match, trending }) => {
                     data={data} 
                     chartData={chartData} 
                     match={match} 
+                    redirectInfo={redirectInfo}
                     handleChange={handleChange} />
             }
         </div>
