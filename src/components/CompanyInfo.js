@@ -11,7 +11,6 @@ const CompanyInfo= ({ statusInfo, info }) => {
          });
 
     useEffect(() => {
-        console.log(statusInfo, info)
         if(info){
             setState({ 
                 hq: info.hq,
