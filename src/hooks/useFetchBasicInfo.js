@@ -9,6 +9,8 @@ const useFetchBasicInfo = (ticker) => {
     const [redirectInfo, setRedirectInfo] = useState(false);
 
     useEffect(() => {
+        setStatusInfo(true);
+        setData([]);
 
         const url = `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-profile?region=US&symbol=${ticker}`;
         const headers = {
@@ -67,6 +69,7 @@ const useFetchBasicInfo = (ticker) => {
             setStatusInfo(false);
           })
           .catch((error) => {
+            setStatusInfo(false);
             setRedirectInfo(true);
             console.log(error);
           });

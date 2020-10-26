@@ -8,7 +8,7 @@ import CompanyData from '../components/CompanyData';
 import CompanyInfo from '../components/CompanyInfo';
 import TickerList from '../components/TickerList';
 
-const CompanyDesktop = ({ data, chartData, handleChange, trending, redirectInfo }) => {
+const CompanyDesktop = ({ data, chartData, handleChange, trending, redirectInfo, statusInfo }) => {
     return (
         <div>
             {
@@ -25,13 +25,13 @@ const CompanyDesktop = ({ data, chartData, handleChange, trending, redirectInfo 
                                         <CompanyChart chartData={chartData} handleChange={handleChange} />
                                     </div>
                                     <div className="col-3 border-left">
-                                        <CompanyTitle title={data.title} />
+                                        <CompanyTitle title={data.title} statusInfo={statusInfo}/>
                                         <div className="d-none d-lg-block">
-                                            <CompanyData data={data.data} />
+                                            <CompanyData data={data.data} statusInfo={statusInfo}/>
                                         </div>
                                     </div>
                                 </div>
-                                <CompanyInfo info={data.info} />
+                                <CompanyInfo info={data.info} statusInfo={statusInfo}/>
                             </div>
                             <div className="col-3 pl-5 d-none d-xl-block">
                                 <TickerList title="Trending" tickers={trending} />

@@ -20,7 +20,7 @@ const CompanyPage = ({ match, trending }) => {
     const chartData = companyData["IBM"].chart.month;
 
     // PRODUCTION
-    const { data, redirectInfo } = useFetchBasicInfo(ticker);
+    const { data, redirectInfo, statusInfo } = useFetchBasicInfo(ticker);
     // const { chartData } = useFetchChartData(ticker, range);
 
     const handleChange = type => {
@@ -35,12 +35,14 @@ const CompanyPage = ({ match, trending }) => {
                     chartData={chartData} 
                     trending={trending} 
                     redirectInfo={redirectInfo}
+                    statusInfo={statusInfo}
                     handleChange={handleChange}/>:
                 <CompanyMobile 
                     data={data} 
                     chartData={chartData} 
                     match={match} 
                     redirectInfo={redirectInfo}
+                    statusInfo={statusInfo}
                     handleChange={handleChange} />
             }
         </div>

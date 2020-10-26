@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const CompanyInfo= ({ info }) => {
+const CompanyInfo= ({ statusInfo, info }) => {
     const [state, setState] = useState({
          hq: '',
          indsutry: '',
@@ -11,6 +11,7 @@ const CompanyInfo= ({ info }) => {
          });
 
     useEffect(() => {
+        console.log(statusInfo, info)
         if(info){
             setState({ 
                 hq: info.hq,
@@ -20,8 +21,17 @@ const CompanyInfo= ({ info }) => {
                 website: info.website,
                 description: info.description
             })
+        } else {
+            setState({
+                hq: '',
+                indsutry: '',
+                ceo: '',
+                fte: '',
+                website: '',
+                description: ''
+            })
         }
-    }, [info])
+    }, [statusInfo])
 
 
     return (
