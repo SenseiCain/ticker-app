@@ -55,7 +55,6 @@ const useFetchBasicInfo = (ticker) => {
         }
 
         fetch(url, headers).then((response) => {
-            console.log(response)
             if (response.ok) {
                 return response.json();
             } else {
@@ -72,7 +71,7 @@ const useFetchBasicInfo = (ticker) => {
             console.log(error);
           });
 
-    }, []);
+    }, [ticker]);
 
     return { data, statusInfo, redirectInfo };
 }

@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from "react-router-dom"
-import { useMediaQuery } from '../hooks/useMediaQuery';
+
+import { companyData } from "../data";
 import { useFetchBasicInfo } from '../hooks/useFetchBasicInfo';
 import { useFetchChartData } from '../hooks/useFetchChartData';
 
 import CompanyMobile from './CompanyMobile';
 import CompanyDesktop from './CompanyDesktop';
 
-import { companyData } from "../data";
-
 const CompanyPage = ({ match, trending }) => {
     const [range, setRange] = useState('day');
-    const { ticker } = useParams();
     const isDisplayed = useMediaQuery("(min-width: 768px)");
+    const { ticker } = useParams();
 
     // DEV
     // const { chartData } = 1;
