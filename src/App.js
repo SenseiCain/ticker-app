@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { trendingData, newsData } from './data';
+// import { trendingData, newsData } from './data';
 import { QueryProvider } from './context/query-context';
 import { useFetchTrending } from './hooks/useFetchTrending';
 import { useFetchNews } from './hooks/useFetchNews';
@@ -15,12 +15,12 @@ import CompanyPage from './containers/CompanyPage';
 function App() {
 
   // DEV
-  const trending = trendingData;
-  const news = newsData;
+  // const trending = trendingData;
+  // const news = newsData;
 
   // PRODUCTION
-  // const { trending, statusTrending } = useFetchTrending();
-  // const { news, statusNews } = useFetchNews();
+  const { trending, statusTrending } = useFetchTrending();
+  const { news, statusNews } = useFetchNews();
 
   return (
     <QueryProvider>
