@@ -12,9 +12,11 @@ const useFetchBasicInfo = (ticker) => {
 
         const url = `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-profile?region=US&symbol=${ticker}`;
         const headers = {
-            "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
+            headers: {
+                "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
             "x-rapidapi-key": "c2e6cd2352mshc152fd4126f9197p1e9892jsne99352339c02",
             "useQueryString": true
+            }
         };
 
         const formatJSON = (json) => {
@@ -53,6 +55,7 @@ const useFetchBasicInfo = (ticker) => {
         }
 
         fetch(url, headers).then((response) => {
+            console.log(response)
             if (response.ok) {
                 return response.json();
             } else {
