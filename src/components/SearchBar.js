@@ -26,7 +26,7 @@ const SearchBar = () => {
                     <input 
                         className="form-control form-control-sm flex-1 mr-2" 
                         type="text" 
-                        placeholder="Search"
+                        placeholder="Search by Ticker"
                         aria-label="Search"
                         value={query}
                         onChange={handleChange}/>
