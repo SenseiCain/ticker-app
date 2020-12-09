@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LoadingSpinner from './LoadingSpinner';
 
-const TickerList = ({ title, tickers }) => {
+const TickerList = ({ title, tickers, status = false }) => {
 
-    const generateCards = () => {
-        return tickers.map((el, i) => {
+    const generateCards = (tickers) => {
+        const items = tickers.map((el, i) => {
             const updateDetla = delta => {
                 if (delta > 0) {
                     return (<span className="text-success">{delta}</span>)
@@ -21,15 +22,19 @@ const TickerList = ({ title, tickers }) => {
                     </div>
                 </li>
             )
-        })   
+        });
+
+        return (
+            <ul className="list-group">
+                {items}
+            </ul>
+        )
     }
 
     return(
         <div className="pb-3">
             <h3>{title}</h3>
-            <ul className="list-group">
-                {generateCards()}
-            </ul>
+            {status ? <LoadingSpinner /> : generateCards(tickers)}
         </div>
     )
 }
