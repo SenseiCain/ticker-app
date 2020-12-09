@@ -4,8 +4,16 @@ import { Line } from 'react-chartjs-2';
 import ChartRanges from './ChartRanges';
 
 const CompanyChart = ({ handleChange, chartData, range }) => {
+
     const labels = chartData.map(el => new Date(el.time));
-    const prices = chartData.map(el => parseFloat(el.price.toFixed(2)));
+    const prices = chartData.map(el => {
+        // Return rounded Float value if neccesary
+        if (el.price % 1 == 0) {
+            return el.price
+        } else {
+            return parseFloat(el.price.toFixed(2))
+        }
+    });
 
     const data = {
         labels,
