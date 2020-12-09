@@ -2,6 +2,7 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 
 import ChartRanges from './ChartRanges';
+import LoadingSpinner from './LoadingSpinner';
 
 const CompanyChart = ({ handleChange, chartData, range }) => {
 
