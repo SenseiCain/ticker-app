@@ -8,7 +8,7 @@ import CompanyInfo from '../components/CompanyInfo';
 import CompanyTitle from '../components/CompanyTitle';
 import CompanyLinks from '../components/CompanyLinks';
 
-const CompanyMobile = ({ handleChange, data, chartData, match, redirectInfo, range }) => {
+const CompanyMobile = ({ handleChange, data, chartData, match, redirectInfo, range, statusInfo }) => {
 
     return (
         <div className="pt-5 px-3">
@@ -20,7 +20,7 @@ const CompanyMobile = ({ handleChange, data, chartData, match, redirectInfo, ran
                             <BackButton />
 
                             <div className="py-5">
-                                <CompanyTitle title={data.title}/>
+                                <CompanyTitle title={data.title} statusInfo={statusInfo}/>
                             </div>
                             <CompanyLinks baseUrl={match.url} />
                         </div>

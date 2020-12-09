@@ -1,9 +1,9 @@
 import React from 'react';
+import LoadingSpinner from './LoadingSpinner';
 
-const CompanyTitle = ({ title }) => {
+const CompanyTitle = ({ title, statusInfo }) => {
     const genTitle = data => {
-
-        if(data) {
+        if(data){
             const { name, ticker, delta } = data;
 
             const updateDetla = delta => {
@@ -23,20 +23,12 @@ const CompanyTitle = ({ title }) => {
                     </h6>
                 </div>
             )
-        } else {
-            return (
-                <div className="text-center py-4">
-                    <div className="spinner-border" role="status">
-                        <span className="sr-only">Loading...</span>
-                    </div>
-                </div>
-            )
         }
     }
 
     return (
         <div>
-            {genTitle(title)}
+            {statusInfo ? <LoadingSpinner /> : genTitle(title)}
         </div>
     )
 }
