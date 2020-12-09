@@ -1,23 +1,28 @@
 import React from 'react';
+import LoadingSpinner from './LoadingSpinner';
 
-const NewsList = ({ news }) => {
+const NewsList = ({ news, status }) => {
 
     const generateArticles = (newsArr) => {
-        return newsArr.map((n, i) => {
+        const newsItems = newsArr.map((n, i) => {
             return (
                 <li key={i} className="list-group-item">
                     <a href={n.url}>{n.title}</a>
                 </li>
             )
-        })
+        });
+
+        return (
+            <ul className="list-group">
+                {newsItems}
+            </ul>
+        )
     }
 
     return (
         <div>
             <h3>News</h3>
-            <ul className="list-group">
-                {generateArticles(news)}
-            </ul>
+            {status ? <LoadingSpinner /> : generateArticles(news)}
         </div>
     )
 }

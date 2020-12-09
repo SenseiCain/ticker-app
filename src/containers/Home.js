@@ -5,7 +5,7 @@ import SearchBar from '../components/SearchBar';
 import TickerList from '../components/TickerList';
 import NewsList from '../components/NewsList';
 
-const Home = ({ trending, news }) => {
+const Home = ({ trending, statusTrending, news, statusNews }) => {
 
     return (
         <div className="pt-5 container">
@@ -14,8 +14,8 @@ const Home = ({ trending, news }) => {
                 <SearchBar />
             </div>
             
-            <TickerList title="Trending" tickers={trending} />
-            <NewsList news={news} />
+            <TickerList title="Trending" tickers={trending} status={statusTrending}/>
+            <NewsList news={news} status={statusNews}/>
         </div>
     )
 }

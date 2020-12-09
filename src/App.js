@@ -28,7 +28,11 @@ function App() {
         <NavBar />
         <Switch>
           <Route exact path="/">
-            <Home trending={trending} news={news}/>
+            <Home 
+              trending={trending} 
+              statusTrending={statusTrending}
+              news={news}
+              statusNews={statusNews}/>
           </Route>
           <Route 
             path="/:ticker"
