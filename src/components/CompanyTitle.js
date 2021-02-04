@@ -7,7 +7,9 @@ const CompanyTitle = ({ title, statusInfo }) => {
             const { name, ticker, delta } = data;
 
             const updateDetla = delta => {
-                if (delta > 0) {
+                const deltaIntValue = delta.toString().replace('%', '');
+                
+                if (deltaIntValue > 0) {
                     return (<span className="text-success">{delta}</span>)
                 } else {
                     return (<span className="text-danger">{delta}</span>)
