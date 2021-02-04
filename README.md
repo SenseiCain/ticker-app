@@ -12,7 +12,8 @@ Company/historical data - https://rapidapi.com/raskanskyz/api/alpha-apis-finance
 
 <img src="https://raw.githubusercontent.com/SenseiCain/ticker-app/master/Wireframe.png" width=500>
 
-##Future Updates
+## Future Updates
 
 Include profiles & favorite tickers
+
 Incorporate API to handle client auth (JWT)
